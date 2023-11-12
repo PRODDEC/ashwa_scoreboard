@@ -1,19 +1,39 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Scoreboard from "../components/Scoreboard/Scoreboard"
 import "swiper/swiper-bundle.min.css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper"
 import Fixture from "../components/Fixture/Fixture"
-import ashwa from "../assets/color-ashwa.png"
 
+import io from 'socket.io-client';
+import Imagepg from "../components/Imagepg"
 const App = () => {
+  useEffect(() => {
+    const socket = io('ws://14.139.189.219/all/team/score/board/realtimeupdate/');
+  
+      // Event listener for connection success
+      socket.on('connect', () => {
+        console.log('Connected to WebSocket server');
+      });
+  
+      // Event listener for receiving messages
+      socket.on('message', (data) => {
+        console.log('Received message:', data);
+      });
+  
+      //Clean up the WebSocket connection on component unmount
+      return () => {
+        console.log('Disconnecting from WebSocket server');
+        socket.disconnect();
+      };
+    }, []);
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       className="mySwiper"
       slidesPerView={1}
       autoplay={{
-        delay: 1000000,
+        delay: 100000,
         disableOnInteraction: false,
       }}
       pagination={{ clickable: true }}
@@ -22,17 +42,7 @@ const App = () => {
         <Scoreboard />
       </SwiperSlide>
       <SwiperSlide>
-        <div
-          style={{
-            height: "100vh",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img height={1000} width={1000} src={ashwa} alt="ashwa" />
-        </div>
+       <Imagepg />
       </SwiperSlide>
       <SwiperSlide>
         <Fixture />

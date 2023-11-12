@@ -1,11 +1,14 @@
 import React from "react"
 import "./Scoreboard.css"
+//import { useEffect } from 'react';
 import Board from "./Board"
 import ashwa from "../../assets/color-ashwa.png"
 import scoreboard_data from "../../constants"
 import bg from "../../assets/bg.png"
+
+
 const Scoreboard = () => {
-  // Calculate the sum of sub_points for each team
+ // Calculate the sum of sub_points for each team
   const teamsWithTotalSubPoints = scoreboard_data.map(team => {
     const totalSubPoints = team.list.reduce(
       (sum, list) => sum + list.sub_points,
