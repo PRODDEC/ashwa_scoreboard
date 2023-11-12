@@ -65,7 +65,7 @@ const Scoreboard = () => {
               item.id === dataObject.item_id ? dataObject : item
             );
           } else {
-            return [...prevData, dataObject];
+            return [...prevData, dataObject].slice(-4);
           }
         });
       } catch (error) {
@@ -119,7 +119,6 @@ const Scoreboard = () => {
           team={data.team}
           title_color={data.team}
           points_color={data.team}
-          // lists={List[data.team]}
           lists={list}
           totalSubPoints={data.score}
         />
