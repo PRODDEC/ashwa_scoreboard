@@ -6,36 +6,36 @@ import ashwa from "../../assets/color-ashwa.png"
 // import scoreboard_data from "../../constants"
 import bg from "../../assets/bg.png"
 
-const list=[
-  {
-    item: "Hockey",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-  {
-    item: "Volleyball",
-    points: 75,
-  },
-  {
-    item: "Table Tennis",
-    points: 55,
-  },
-  {
-    item: "Badminton",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-  {
-    item: "Tennis",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-  {
-    item: "Badminton",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-  {
-    item: "Tennis",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-]
+// const list=[
+//   {
+//     item: "Hockey",
+//     points: Math.floor(Math.random() * 100) + 1,
+//   },
+//   {
+//     item: "Volleyball",
+//     points: 75,
+//   },
+//   {
+//     item: "Table Tennis",
+//     points: 55,
+//   },
+//   {
+//     item: "Badminton",
+//     points: Math.floor(Math.random() * 100) + 1,
+//   },
+//   {
+//     item: "Tennis",
+//     points: Math.floor(Math.random() * 100) + 1,
+//   },
+//   {
+//     item: "Badminton",
+//     points: Math.floor(Math.random() * 100) + 1,
+//   },
+//   {
+//     item: "Tennis",
+//     points: Math.floor(Math.random() * 100) + 1,
+//   },
+// ]
 
 const Scoreboard = () => {
   const [totalData, setTotalData] = useState([]);
@@ -119,7 +119,7 @@ const Scoreboard = () => {
           team={data.team}
           title_color={data.team}
           points_color={data.team}
-          lists={list}
+          lists={List[data.team]}
           totalSubPoints={data.score}
         />
         ))}
