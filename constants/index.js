@@ -21,6 +21,17 @@ const scoreboard_data = [
         game: "Baseball",
         sub_points: 70,
       },
+      {
+        game: "Tennis",
+        sub_points: 70,
+      },
+      {
+        game: "Tennis",
+        sub_points: 70,
+      },{
+        game: "Tennis",
+        sub_points: 70,
+      },
     ],
   },
   {

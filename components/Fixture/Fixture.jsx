@@ -10,12 +10,12 @@ const Fixture = () => {
   const[result, setResult] = useState([]);
   const date=new Date(Date.now()).getDate()
   const day=new Date(Date.now()).getDay()
-  console.log(date);
+  //console.log(date);
   useEffect(() => {
     const fetchResult = async () => {
       try {
         const response = await axios.get('http://14.139.189.219/fixtures/ashwa/result/all');
-        console.log(response.data.fixture_result); 
+        //console.log(response.data.fixture_result); 
         setResult(response.data.fixture_result);
       } catch (error) {
         console.error(error);
