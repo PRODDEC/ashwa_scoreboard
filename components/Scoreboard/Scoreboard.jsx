@@ -6,36 +6,6 @@ import ashwa from "../../assets/color-ashwa.png"
 // import scoreboard_data from "../../constants"
 import bg from "../../assets/bg.png"
 
-const list=[
-  {
-    item: "Hockey",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-  {
-    item: "Volleyball",
-    points: 75,
-  },
-  {
-    item: "Table Tennis",
-    points: 55,
-  },
-  {
-    item: "Badminton",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-  {
-    item: "Tennis",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-  {
-    item: "Badminton",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-  {
-    item: "Tennis",
-    points: Math.floor(Math.random() * 100) + 1,
-  },
-]
 
 const Scoreboard = () => {
   const [totalData, setTotalData] = useState([]);
@@ -58,11 +28,11 @@ const Scoreboard = () => {
         
 
         setData((prevData) => {
-          const isIdInArray = prevData.some((item) => item.id === dataObject.item_id);
+          const isIdInArray = prevData.some((item) => item.id === dataObject.id);
           console.log(isIdInArray);
           if (isIdInArray) {
             return prevData.map((item) =>
-              item.id === dataObject.item_id ? dataObject : item
+              item.id === dataObject.id ? dataObject : item
             );
           } else {
             return [...prevData, dataObject].slice(-4);
@@ -98,7 +68,7 @@ const Scoreboard = () => {
       socket5();
     };
   }, []);
-// console.log(totalData);
+console.log(totalData);
 // console.log(redData);
 // console.log(yellowData);
 // console.log(blueData);
@@ -119,7 +89,7 @@ const Scoreboard = () => {
           team={data.team}
           title_color={data.team}
           points_color={data.team}
-          lists={list}
+          lists={List[data.team]}
           totalSubPoints={data.score}
         />
         ))}
