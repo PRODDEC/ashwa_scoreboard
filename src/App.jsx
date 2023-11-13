@@ -38,9 +38,9 @@ const App = () => {
       <SwiperSlide>
         <Fixture />
       </SwiperSlide>
-      <SwiperSlide>
+      {/* <SwiperSlide>
         <Winners />
-      </SwiperSlide>
+      </SwiperSlide> */}
     </Swiper>
   )
 }
