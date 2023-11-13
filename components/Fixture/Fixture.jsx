@@ -40,8 +40,12 @@ const Fixture = () => {
         </div>
         <div className="fixture-list">
           {result.map((data, index) => (
+
+          
             <Row
               key={index}
+              venue={data.match_venue}
+              roundno={data.match_level}
               title={data.match_item}
               time={data.match_time}
               left_team={data.team_1}
