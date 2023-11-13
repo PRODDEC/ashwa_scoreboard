@@ -6,7 +6,6 @@ import ashwa from "../../assets/color-ashwa.png"
 // import scoreboard_data from "../../constants"
 import bg from "../../assets/bg.png"
 
-
 const Scoreboard = () => {
   const [totalData, setTotalData] = useState([]);
   const [redData, setRedData] = useState([]);
@@ -79,7 +78,7 @@ console.log(totalData);
   )
 
   return (
-    <div id="scoreboard" >
+    <div id="scoreboard">
       <img height={150} width={150} src={ashwa} alt="Ashwa" />
       <div className="container">
         {sortedTeams.map((data, index) => (
