@@ -4,6 +4,7 @@ import "swiper/swiper-bundle.min.css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper"
 import Fixture from "../components/Fixture/Fixture"
+import Winners from '../components/Winners/Winners';
 //import io from 'socket.io-client'
 import Imagepg from "../components/Imagepg"
 const App = () => {
@@ -14,16 +15,16 @@ const App = () => {
       className="mySwiper"
       slidesPerView={1}
       autoplay={{
-        delay: 100000,
+        delay: 1000000,
         disableOnInteraction: false,
       }}
       pagination={{ clickable: true }}
     >
       <SwiperSlide>
-        <Scoreboard />
+       <Imagepg />
       </SwiperSlide>
       <SwiperSlide>
-       <Imagepg />
+        <Scoreboard />
       </SwiperSlide>
       <SwiperSlide>
         <Fixture />

@@ -28,11 +28,12 @@ const Fixture = () => {
 
   return (
     <div id="fixture">
-      <div className="container">
-        <div className="logo">
+     
+        <div className="header">
           <img src={ashwa} alt="" />
+          <div className="head">FIXTURES</div>
         </div>
-        <div className="head">FIXTURES</div>
+        
         <div className="all">
           <div className="date">
             <h1>{date} / {week[day]}</h1>
@@ -57,7 +58,7 @@ const Fixture = () => {
 
         </div>
       </div>
-    </div>
+    
   );
 };
 

@@ -6,6 +6,12 @@ import ashwa from "../../assets/color-ashwa.png"
 // import scoreboard_data from "../../constants"
 import bg from "../../assets/bg.png"
 
+
+function arraysEqual(arr1, arr2) {
+  return JSON.stringify(arr1) === JSON.stringify(arr2);
+}
+
+
 const Scoreboard = () => {
   const [totalData, setTotalData] = useState([]);
   const [redData, setRedData] = useState([]);
@@ -18,7 +24,19 @@ const Scoreboard = () => {
     GREEN:greenData,
     YELLOW:yellowData
     }
-  const setupWebSocket = (socketUrl, setData) => {
+
+    useEffect(() => {    
+      const sortedTeams = [...totalData].sort((a, b) => a.score > b.score);
+      if (!arraysEqual(sortedTeams, totalData)) {
+        setTotalData(sortedTeams);
+      }
+    }, [totalData]);
+
+
+
+
+    const sockets = {};
+    const setupWebSocket = async (socketUrl, setData) => {
     const socket = new WebSocket(socketUrl);
 
     socket.onmessage = function (event) {
@@ -50,38 +68,34 @@ const Scoreboard = () => {
       socket.close();
     };
   };
-
   useEffect(() => {
-    const socket1 = setupWebSocket('ws://14.139.189.219/all/team/score/board/realtimeupdate/', setTotalData);
-    const socket2 = setupWebSocket('ws://14.139.189.219/red/team/score/board/realtimeupdate/', setRedData);
-    const socket3 = setupWebSocket('ws://14.139.189.219/blue/team/score/board/realtimeupdate/', setBlueData);
-    const socket4 = setupWebSocket('ws://14.139.189.219/green/team/score/board/realtimeupdate/', setGreenData);
-    const socket5 = setupWebSocket('ws://14.139.189.219/yellow/team/score/board/realtimeupdate/', setYellowData);
+    const runWebSocketConnections = async () => {
+      await setupWebSocket('ws://14.139.189.219/all/team/score/board/realtimeupdate/', setTotalData);
+      await setupWebSocket('ws://14.139.189.219/red/team/score/board/realtimeupdate/', setRedData);
+      await setupWebSocket('ws://14.139.189.219/blue/team/score/board/realtimeupdate/', setBlueData);
+      await setupWebSocket('ws://14.139.189.219/green/team/score/board/realtimeupdate/', setGreenData);
+      await setupWebSocket('ws://14.139.189.219/yellow/team/score/board/realtimeupdate/', setYellowData);
+    };
+
+    runWebSocketConnections();
 
     // Clean up all WebSocket connections when the component unmounts
     return () => {
-      socket1();
-      socket2();
-      socket3();
-      socket4();
-      socket5();
+      Object.values(sockets).forEach((socket) => socket.close());
     };
   }, []);
-console.log(totalData);
+
 // console.log(redData);
 // console.log(yellowData);
 // console.log(blueData);
 // console.log(greenData);
   console.log(List);
-  const sortedTeams = totalData.sort(
-    (a, b) => a.score > b.score
-  )
-
+  console.log(totalData);
   return (
     <div id="scoreboard">
       <img height={150} width={150} src={ashwa} alt="Ashwa" />
       <div className="container">
-        {sortedTeams.map((data, index) => (
+        {totalData.map((data, index) => (
           <Board
           key={index}
           rank={index + 1}
