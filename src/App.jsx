@@ -1,13 +1,13 @@
-import React from "react"
-import ashwa from "../assets/color-ashwa.png"
-import { Scoreboard, Fixture, Winners } from "../components"
-
-//Swiper
+import React from 'react';
+import Scoreboard from "../components/Scoreboard/Scoreboard"
 import "swiper/swiper-bundle.min.css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper"
-
+import Fixture from "../components/Fixture/Fixture"
+//import io from 'socket.io-client'
+import Imagepg from "../components/Imagepg"
 const App = () => {
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -23,17 +23,7 @@ const App = () => {
         <Scoreboard />
       </SwiperSlide>
       <SwiperSlide>
-        <div
-          style={{
-            height: "100vh",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img height={1000} width={1000} src={ashwa} alt="ashwa" />
-        </div>
+       <Imagepg />
       </SwiperSlide>
       <SwiperSlide>
         <Fixture />
