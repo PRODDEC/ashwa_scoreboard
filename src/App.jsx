@@ -6,7 +6,6 @@ import { Navigation, Pagination, Autoplay } from "swiper"
 import Fixture from "../components/Fixture/Fixture"
 //import io from 'socket.io-client'
 import Imagepg from "../components/Imagepg"
-
 const App = () => {
 
   return (
@@ -29,6 +28,9 @@ const App = () => {
       <SwiperSlide>
         <Fixture />
       </SwiperSlide>
+      {/* <SwiperSlide>
+        <Winners />
+      </SwiperSlide> */}
     </Swiper>
   )
 }

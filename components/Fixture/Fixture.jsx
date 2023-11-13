@@ -38,8 +38,6 @@ const Fixture = () => {
             <h1>{date} / {week[day]}</h1>
           </div>
         </div>
-
-
         <div className="fixture-list">
           {result.map((data, index) => (
             <Row
@@ -52,6 +50,7 @@ const Fixture = () => {
               right_color={data.team_2}
             />
           ))}
+
         </div>
       </div>
     </div>
