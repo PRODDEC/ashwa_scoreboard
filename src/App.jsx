@@ -8,26 +8,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
 
 const App = () => {
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       className="mySwiper"
       slidesPerView={1}
       autoplay={{
-        delay: 100000,
+        delay: 1000000,
         disableOnInteraction: false,
       }}
       pagination={{ clickable: true }}
     >
       <SwiperSlide>
-        <Scoreboard />
+       <Imagepg />
       </SwiperSlide>
       <SwiperSlide>
-        <div
-          style="ashwa-logo"
-        >
-          <img height={1000} width={1000} src={ashwa} alt="ashwa" />
-        </div>
+        <Scoreboard />
       </SwiperSlide>
       <SwiperSlide>
         <Fixture />
