@@ -228,8 +228,6 @@
   #fixture .fixture-list {
     padding-bottom: 50px;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
   }
   #fixture .ta h1{
     font-size: 20px;

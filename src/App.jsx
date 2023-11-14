@@ -5,10 +5,10 @@ import "swiper/swiper-bundle.min.css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper"
 import Fixture from "../components/Fixture/Fixture"
-import Winners from '../components/Winners/Winners';
+// import Winners from '../components/Winners/Winners';
 //import io from 'socket.io-client'
 import Imagepg from "../components/Imagepg"
-import ashwa from "../assets/color-ashwa.png";
+// import ashwa from "../assets/ashwa.png";
 
 const App = () => {
 

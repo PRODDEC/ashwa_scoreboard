@@ -2,18 +2,15 @@ import React, { useEffect, useState } from 'react';
 import "./Scoreboard.css"
 //import { useEffect } from 'react';
 import Board from "./Board"
-import ashwa from "../../assets/color-ashwa.png"
 // import scoreboard_data from "../../constants"
 import bg from "../../assets/bg.png"
+import ashwa from "../../assets/ashwa.png"
+import proddec from "../../assets/proddec.png"
 
 
 function arraysEqual(arr1, arr2) {
   return JSON.stringify(arr1) === JSON.stringify(arr2);
 }
-
-import ashwa from "../../assets/ashwa.png"
-import proddec from "../../assets/proddec.png"
-import scoreboard_data from "../../constants"
 const Scoreboard = () => {
   const [totalData, setTotalData] = useState([]);
   const [redData, setRedData] = useState([]);
