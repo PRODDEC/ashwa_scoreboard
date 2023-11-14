@@ -1,115 +1,65 @@
-import React, { useEffect, useRef } from "react"
-import "./Fixture.css"
-import ashwa from "../../assets/color-ashwa.png"
-import illus from "../../assets/Football Player.gif"
-import Row from "./Row"
+import React, { useEffect, useState } from "react";
+import "./Fixture.css";
+import ashwa from "../../assets/color-ashwa.png";
+import illus from "../../assets/Football Player.gif";
+import Row from "./Row";
+import axios from 'axios';
 
 const Fixture = () => {
-  const containerRef = useRef(null)
+  const week=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
+  const[result, setResult] = useState([]);
+  const date=new Date(Date.now()).getDate()
+  const day=new Date(Date.now()).getDay()
+  //console.log(date);
+  useEffect(() => {
+    const fetchResult = async () => {
+      try {
+        const response = await axios.get('http://14.139.189.219/fixtures/ashwa/result/all');
+        //console.log(response.data.fixture_result); 
+        setResult(response.data.fixture_result);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-  useEffect(
-    () => {
-      // Scroll to the bottom when the component mounts or when content changes
-      scrollToBottom()
-    },
-    [
-      /* dependencies that trigger a scroll, if any */
-    ]
-  )
+    fetchResult();
+  }, []); 
 
-  const scrollToBottom = () => {
-    if (containerRef.current) {
-      // Scroll to the bottom of the container
-      containerRef.current.scrollTop = containerRef.current.scrollHeight
-    }
-  }
+
   return (
-    <d id="fixture">
-      <div className="container">
-        <div className="logo">
+    <div id="fixture">
+     
+        <div className="header">
           <img src={ashwa} alt="" />
+          <div className="head">FIXTURES</div>
         </div>
-        <div className="head">FIXTURES</div>
+        
         <div className="all">
           <div className="date">
-            <h1>23rd WEDNESDAY</h1>
+            <h1>{date} / {week[day]}</h1>
           </div>
         </div>
-        <div className="fixture-list" ref={containerRef}>
-          <Row
-            title="Volleyball"
-            roundno="Round 1"
-            time="11:30"
-            venue="open court"
-            left_team="GREEN"
-            left_color="#4DB657"
-            right_team="YELLOW"
-            right_color="#DBD355"
-          />
-          <Row
-            title="Cricket"
-            roundno="Round 1"
-            time="12:30"
-            venue="open court"
-            left_team="BLUE"
-            left_color="#3A71C4"
-            right_team="RED"
-            right_color="#F3594D"
-          />
-          <Row
-            title="Football"
-            roundno="Round 1"
-            time="10:30"
-            venue="open court"
-            left_team="RED"
-            left_color="#F3594D"
-            right_team="GREEN"
-            right_color="#4DB657"
-          />
-          <Row
-            title="Basketball-"
-            roundno="Round 1"
-            time="11:30"
-            venue="open court"
-            left_team="GREEN"
-            left_color="#4DB657"
-            right_team="YELLOW"
-            right_color="#DBD355"
-          />
-          <Row
-            title="Basketball-"
-            roundno="Round 1"
-            time="11:30"
-            venue="open court"
-            left_team="GREEN"
-            left_color="#4DB657"
-            right_team="YELLOW"
-            right_color="#DBD355"
-          />{" "}
-          <Row
-            title="Basketball-"
-            roundno="Round 1"
-            time="11:30"
-            venue="open court"
-            left_team="GREEN"
-            left_color="#4DB657"
-            right_team="YELLOW"
-            right_color="#DBD355"
-          />{" "}
-          <Row
-            title="Basketball-"
-            roundno="Round 1"
-            time="11:30"
-            venue="open court"
-            left_team="GREEN"
-            left_color="#4DB657"
-            right_team="YELLOW"
-            right_color="#DBD355"
-          />
+        <div className="fixture-list">
+          {result.map((data, index) => (
+
+          
+            <Row
+              key={index}
+              venue={data.match_venue}
+              roundno={data.match_level}
+              title={data.match_item}
+              time={data.match_time}
+              left_team={data.team_1}
+              left_color={data.team_1}
+              right_team={data.team_2}
+              right_color={data.team_2}
+            />
+          ))}
+
         </div>
       </div>
-    </d>
-  )
-}
+    
+  );
+};
 
 export default Fixture

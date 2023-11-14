@@ -1,39 +1,30 @@
-import React from "react"
-import ashwa from "../assets/color-ashwa.png"
-import { Scoreboard, Fixture, Winners } from "../components"
-
-//Swiper
+import React from 'react';
+import Scoreboard from "../components/Scoreboard/Scoreboard"
 import "swiper/swiper-bundle.min.css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper"
-
+import Fixture from "../components/Fixture/Fixture"
+import Winners from '../components/Winners/Winners';
+//import io from 'socket.io-client'
+import Imagepg from "../components/Imagepg"
 const App = () => {
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       className="mySwiper"
       slidesPerView={1}
       autoplay={{
-        delay: 100000,
+        delay: 1000000,
         disableOnInteraction: false,
       }}
       pagination={{ clickable: true }}
     >
       <SwiperSlide>
-        <Scoreboard />
+       <Imagepg />
       </SwiperSlide>
       <SwiperSlide>
-        <div
-          style={{
-            height: "100vh",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img height={1000} width={1000} src={ashwa} alt="ashwa" />
-        </div>
+        <Scoreboard />
       </SwiperSlide>
       <SwiperSlide>
         <Fixture />
