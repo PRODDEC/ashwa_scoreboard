@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import "./Scoreboard.css"
 //import { useEffect } from 'react';
 import Board from "./Board"
+
+import ashwa from "../../assets/ashwa.png"
+import proddec from "../../assets/proddec.png"
+import scoreboard_data from "../../constants"
 import ashwa from "../../assets/color-ashwa.png"
 // import scoreboard_data from "../../constants"
 import bg from "../../assets/bg.png"
@@ -93,6 +97,7 @@ const Scoreboard = () => {
   console.log(totalData);
   return (
     <div id="scoreboard">
+      <img className="proddec" width={150} height={150} src={proddec} alt="" />
       <img height={150} width={150} src={ashwa} alt="Ashwa" />
       <div className="container">
         {totalData.map((data, index) => (
