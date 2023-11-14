@@ -8,8 +8,8 @@ import axios from 'axios';
 const Fixture = () => {
   const week=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
   const[result, setResult] = useState([]);
-  const date=new Date(Date.now()).getDate()
-  const day=new Date(Date.now()).getDay()
+  // const date=new Date(Date.now()).getDate()
+  // const day=new Date(Date.now()).getDay()
   //console.log(date);
   useEffect(() => {
     const fetchResult = async () => {
@@ -24,7 +24,7 @@ const Fixture = () => {
 
     fetchResult();
   }, []); 
-
+console.log()
 
   return (
     <div id="fixture">
@@ -36,7 +36,7 @@ const Fixture = () => {
         
         <div className="all">
           <div className="date">
-            <h1>{date} / {week[day]}</h1>
+            <h1>{result[0].match_date}</h1>
           </div>
         </div>
         <div className="fixture-list">
