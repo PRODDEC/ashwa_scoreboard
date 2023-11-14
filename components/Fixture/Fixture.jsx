@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Fixture.css";
 import ashwa from "../../assets/color-ashwa.png";
-import illus from "../../assets/Football Player.gif";
 import Row from "./Row";
+import proddec from "../../assets/proddec.png";
 import axios from 'axios';
 
 const Fixture = () => {
@@ -28,8 +28,9 @@ const Fixture = () => {
 
   return (
     <div id="fixture">
-     
-        <div className="header">
+      <img className="proddec" width={150} height={150} src={proddec} alt="" />
+      <div className="container">
+        <div className="logo">
           <img src={ashwa} alt="" />
           <div className="head">FIXTURES</div>
         </div>
@@ -57,6 +58,7 @@ const Fixture = () => {
           ))}
 
         </div>
+      </div>
       </div>
     
   );

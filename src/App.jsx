@@ -1,12 +1,12 @@
-import React from 'react';
-import Scoreboard from "../components/Scoreboard/Scoreboard"
-import "swiper/swiper-bundle.min.css"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Pagination, Autoplay } from "swiper"
-import Fixture from "../components/Fixture/Fixture"
-import Winners from '../components/Winners/Winners';
-//import io from 'socket.io-client'
-import Imagepg from "../components/Imagepg"
+import React from "react";
+import ashwa from "../assets/color-ashwa.png";
+import { Scoreboard, Fixture, Winners } from "../components";
+
+//Swiper
+import "swiper/swiper-bundle.min.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper";
+
 const App = () => {
 
   return (
@@ -33,7 +33,7 @@ const App = () => {
         <Winners />
       </SwiperSlide>
     </Swiper>
-  )
-}
+  );
+};
 
-export default App
+export default App;
