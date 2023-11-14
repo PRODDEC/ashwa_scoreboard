@@ -11,7 +11,9 @@ function arraysEqual(arr1, arr2) {
   return JSON.stringify(arr1) === JSON.stringify(arr2);
 }
 
-
+import ashwa from "../../assets/ashwa.png"
+import proddec from "../../assets/proddec.png"
+import scoreboard_data from "../../constants"
 const Scoreboard = () => {
   const [totalData, setTotalData] = useState([]);
   const [redData, setRedData] = useState([]);
@@ -93,6 +95,7 @@ const Scoreboard = () => {
   console.log(totalData);
   return (
     <div id="scoreboard">
+      <img className="proddec" width={150} height={150} src={proddec} alt="" />
       <img height={150} width={150} src={ashwa} alt="Ashwa" />
       <div className="container">
         {totalData.map((data, index) => (

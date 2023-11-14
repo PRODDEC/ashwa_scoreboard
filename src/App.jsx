@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Scoreboard from "../components/Scoreboard/Scoreboard"
 import "swiper/swiper-bundle.min.css"
@@ -7,6 +8,8 @@ import Fixture from "../components/Fixture/Fixture"
 import Winners from '../components/Winners/Winners';
 //import io from 'socket.io-client'
 import Imagepg from "../components/Imagepg"
+import ashwa from "../assets/color-ashwa.png";
+
 const App = () => {
 
   return (
@@ -33,7 +36,7 @@ const App = () => {
         <Winners />
       </SwiperSlide> */}
     </Swiper>
-  )
-}
+  );
+};
 
-export default App
+export default App;
