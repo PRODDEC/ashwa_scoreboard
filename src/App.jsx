@@ -24,16 +24,9 @@ const App = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div
-          style={{
-            height: "100vh",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            overflow: "hidden",
-          }}
+          style="ashwa-logo"
         >
-          <img height={400} width={400} src={ashwa} alt="ashwa" />
+          <img height={1000} width={1000} src={ashwa} alt="ashwa" />
         </div>
       </SwiperSlide>
       <SwiperSlide>
