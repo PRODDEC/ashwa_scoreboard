@@ -64,4 +64,4 @@ const Fixture = () => {
   );
 };
 
-export default Fixture;
+export default Fixture
