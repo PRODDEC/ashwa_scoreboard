@@ -29,36 +29,44 @@ const Excelboard= () => {
   };
 
   const Scoreboard = () => {
-      const teamObject = {};
-      // Iterate through the data and organize it by teams
-      data.forEach(row => {
-        const teamName = row[2];
-        const subItem = {
-          id: row[0],
-          item:row[1],
-          // color: row[2],
-          points: parseInt(row[3], 10),
-          subItemId: parseInt(row[4], 10),
+    const teamObject = {};
+  
+    // Iterate through the data and organize it by teams
+    data.forEach(row => {
+      const teamName = row[2];
+      const subItem = {
+        id: row[0],
+        item: row[1],
+        // color: row[2],
+        points: parseInt(row[3], 10),
+        subItemId: parseInt(row[4], 10),
+      };
+  
+      if (!teamObject[teamName]) {
+        teamObject[teamName] = {
+          team: teamName,
+          subItems: [],
+          totalPoints: 0, // Initialize totalPoints for each team
         };
-    
-        if (!teamObject[teamName]) {
-          teamObject[teamName] = {
-            team: teamName,
-            subItems: [],
-            totalPoints: 0, // Initialize totalPoints for each team
-          };
-        }
-    
-        teamObject[teamName].subItems.push(subItem);
-        teamObject[teamName].totalPoints += subItem.points; // Accumulate totalPoints
-      });
-    
-      // Convert the object into an array of team objects
-      const teamArray = Object.values(teamObject);
-      const sortedTeams = teamArray.sort((a, b) => parseFloat(b.totalPoints) - parseFloat(a.totalPoints));
-      console.log(sortedTeams)
-      setSortedData(sortedTeams)
       }
+  
+      // Add the latest subitem and limit the list to 4
+      teamObject[teamName].subItems.unshift(subItem);
+      if (teamObject[teamName].subItems.length > 4) {
+        teamObject[teamName].subItems.pop(); // Remove the oldest subitem if the limit is exceeded
+      }
+  
+      teamObject[teamName].totalPoints += subItem.points; // Accumulate totalPoints
+    });
+  
+    // Convert the object into an array of team objects
+    const teamArray = Object.values(teamObject);
+    const sortedTeams = teamArray.sort((a, b) => parseFloat(b.totalPoints) - parseFloat(a.totalPoints));
+  
+    console.log(sortedTeams);
+    setSortedData(sortedTeams);
+  }
+  
 
       // return teamArray;
 
@@ -105,8 +113,8 @@ useEffect(() => {
   return (
     <div id="scoreboard">
       <div className='header'>
-        <img className="proddec" width={150} height={150} src={proddec} alt="" />
-      <img height={150} width={150} src={ashwa} alt="Ashwa" /></div>
+        <img className="proddec" width={100} height={100} src={proddec} alt="" />
+      <img height={100} width={100} src={ashwa} alt="Ashwa" /></div>
       
       <div className="container">
         {sortedData.map((data, index) => (

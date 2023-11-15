@@ -12,13 +12,12 @@
   display: flex;
   object-fit: cover;
   justify-content: center;
+  align-items: center;
 }
 .header{
-
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-
+  width: 100%;
 }
 .ashwa {
   height: 100px;
@@ -27,12 +26,13 @@
 }
 
 .container {
-  width: 95%;
+  width: 80%;
   height: 100vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 .col-1 {
@@ -123,5 +123,4 @@ h2 {
     width: 350px;
     height: 300px;
   }
-  
 }

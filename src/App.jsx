@@ -1,44 +1,40 @@
-
-import React from 'react';
-// import Scoreboard from "../components/Scoreboard/Scoreboard"
-import "swiper/swiper-bundle.min.css"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Pagination, Autoplay } from "swiper"
-import Fixture from "../components/Fixture/Fixture"
-// import Winners from '../components/Winners/Winners';
-//import io from 'socket.io-client'
-import Imagepg from "../components/Imagepg"
-import Excelboard from '../components/Scoreboard/excelboard';
-// import ashwa from "../assets/ashwa.png";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Imagepg from "../components/Imagepg";
+import Excelboard from "../components/Scoreboard/excelboard";
 
 const App = () => {
+  const sliderSettings = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 10000,
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          // Adjust settings for mobile view if needed
+        },
+      },
+    ],
+  };
 
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      className="mySwiper"
-      slidesPerView={1}
-      autoplay={{
-        delay: 10000,
-        disableOnInteraction: false,
-      }}
-      pagination={{ clickable: true }}
-    >
-      <SwiperSlide>
-       <Imagepg />
-      </SwiperSlide>
-      <SwiperSlide>
+    <Slider {...sliderSettings}>
+      <div>
+        <Imagepg />
+      </div>
+      <div>
         {/* <Scoreboard /> */}
-        <Excelboard/>
-      </SwiperSlide>
-      <SwiperSlide>
-        <Fixture />
-      </SwiperSlide>
-      {/* <SwiperSlide>
-        <Winners />
-      </SwiperSlide> */}
-    </Swiper>
+        <Excelboard />
+      </div>
+      {/* Add more slides as needed */}
+    </Slider>
   );
 };
 
 export default App;
+
