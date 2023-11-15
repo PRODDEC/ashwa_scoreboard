@@ -90,7 +90,7 @@ const Excelboard= () => {
     const intervalId = setInterval(() => {
       fetchData();
       
-    }, 6000000);
+    }, 120000);
 
     return () => clearInterval(intervalId);
   }, []);

@@ -32,7 +32,7 @@ const Fixture = () => {
       const intervalId = setInterval(() => {
         fetchData();
         
-      }, 6000000);
+      }, 900000);
   
       return () => clearInterval(intervalId);
     }, []);
