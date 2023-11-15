@@ -40,7 +40,7 @@ console.log()
         
         <div className="all">
           <div className="date">
-            <h1>{45/66/7}</h1>
+            <h1>45/66/7</h1>
           </div>
         </div>
         <div className="fixture-list">
