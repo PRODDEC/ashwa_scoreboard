@@ -10,17 +10,9 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  width: 100%;
+
 }
-#fixture .header {
-  margin:0,10px,0,10px;
-  display: flex;
-  justify-content: center;
-  width: 150px;
-  height: 150px;
-  margin-top:85px;
-  object-fit: cover;
-}
+
 #fixture img {
   display: flex;
   height: 100%;
@@ -33,9 +25,15 @@
   width: 70px;
   height: auto;
 }
+#fixture .logo{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 70px;
+  height: auto;
+}
 #fixture .head {
-  margin-bottom: 68px;
-  margin-top: -45px;
+  
   color: #e2b52d;
   text-align: center;
   font-family: "Inter", sans-serif;
@@ -46,7 +44,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 #fixture .all {
-  height: 70px;
+  height: 50px;
   display: flex;
   justify-content: center;
 
@@ -65,7 +63,6 @@
   font-size: 15px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.5);
-  margin-top: -88px;
 }
 #fixture .team
 {
@@ -197,12 +194,10 @@
     font-size: 50px;
   }
   #fixture .logo {
-    display: flex;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-    margin-top: -11px;
-    object-fit: cover;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: auto;
   }
   #fixture .date {
     height: 43px;

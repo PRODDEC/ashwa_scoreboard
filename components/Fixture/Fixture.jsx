@@ -2,69 +2,76 @@ import React, { useEffect, useState } from "react";
 import "./Fixture.css";
 import ashwa from "../../assets/color-ashwa.png";
 import Row from "./Row";
-import axios from 'axios';
 import proddec from "../../assets/proddec.png";
+import axios from 'axios';
 
 const Fixture = () => {
   const week=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
   const[result, setResult] = useState([]);
-  // const date=new Date(Date.now()).getDate()
-  // const day=new Date(Date.now()).getDay()
+  const date=new Date(Date.now()).getDate()
+  const day=new Date(Date.now()).getDay()
   //console.log(date);
-  useEffect(() => {
-    const fetchResult = async () => {
+    const key = 'AIzaSyDPvKkCJl0GB7cimpBaMxjSkprBK7a6S-Q'; // Replace with your actual API key
+
+    const fetchData = async () => {
       try {
-        const response = await axios.get('http://14.139.189.219/fixtures/ashwa/result/all');
-        //console.log(response.data.fixture_result); 
-        setResult(response.data.fixture_result);
+        // Make an API call with Axios and the key parameter
+        const response = await axios.get('https://sheets.googleapis.com/v4/spreadsheets/13S4ukA-LM4WA75Ip7CaNKYyYfbbIHBMjsdt28H1azYM/values/fixtures!A2:G', {
+          params: {
+            key: key,
+          },
+        });
+        setResult(response.data.values);
       } catch (error) {
-        console.error(error);
+        console.error('Error fetching data:', error);
       }
-    };
-
-    fetchResult();
-  }, []); 
-console.log()
-
+    }
+    useEffect(() => {
+      // Initial API call
+      fetchData();
+      const intervalId = setInterval(() => {
+        fetchData();
+        
+      }, 6000000);
+  
+      return () => clearInterval(intervalId);
+    }, []);
+console.log(result);
   return (
     <div id="fixture">
-     
-        <div className="header">
-    
-      <img className="proddec" width={150} height={150} src={proddec} alt="" />
-      <div className="container">
-        <div className="logo">
-          <img src={ashwa} alt="" />
-          <div className="head">FIXTURES</div>
+    <img className="proddec" width={150} height={150} src={proddec} alt="" />
+   <img className="logo"  width={150} height={150} src={ashwa} alt="" />
+    <div className="container">
+      <div className="head">FIXTURES</div>
+      <div className="all">
+        <div className="date">
+          <h1>23rd WEDNESDAY</h1>
         </div>
-        
-        <div className="all">
-          <div className="date">
-            <h1>45/66/7</h1>
-          </div>
-        </div>
-        <div className="fixture-list">
-          {result.map((data, index) => (
+      </div>
+      <div className="fixture-list">
 
-          
+      {result.map((data, index) => (
             <Row
               key={index}
-              venue={data.match_venue}
-              roundno={data.match_level}
-              title={data.match_item}
-              time={data.match_time}
-              left_team={data.team_1}
-              left_color={data.team_1}
-              right_team={data.team_2}
-              right_color={data.team_2}
+              venue={data[4]}
+              roundno={data[5]}
+              title={data[6]}
+              time={data[3]}
+              left_team={data[0]}
+              left_color={data[0]}
+              right_team={data[1]}
+              right_color={data[1]}
             />
           ))}
 
         </div>
       </div>
-    </div>
-    </div>
+      </div>
+    
   );
-};
+}
 
-export default Fixture;
+export default Fixture
+
+
+

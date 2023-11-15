@@ -90,7 +90,7 @@ const Excelboard= () => {
     const intervalId = setInterval(() => {
       fetchData();
       
-    }, 60000);
+    }, 6000000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -104,8 +104,10 @@ useEffect(() => {
   console.log(sortedData);
   return (
     <div id="scoreboard">
-      <img className="proddec" width={150} height={150} src={proddec} alt="" />
-      <img height={150} width={150} src={ashwa} alt="Ashwa" />
+      <div className='header'>
+        <img className="proddec" width={150} height={150} src={proddec} alt="" />
+      <img height={150} width={150} src={ashwa} alt="Ashwa" /></div>
+      
       <div className="container">
         {sortedData.map((data, index) => (
           <Board
