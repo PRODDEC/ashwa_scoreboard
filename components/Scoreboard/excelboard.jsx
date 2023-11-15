@@ -11,7 +11,12 @@ import axios from 'axios';
 const Excelboard= () => {
   const [data, setData] = useState([]);
  const [sortedData, setSortedData] = useState([]);
-
+const colour={
+  yellow:"#fac002",
+  green:"#4DB657",
+  blue:"#3A71C4",
+  red:"#F3594D",
+}
   const key = 'AIzaSyDPvKkCJl0GB7cimpBaMxjSkprBK7a6S-Q'; // Replace with your actual API key
 
   const fetchData = async () => {
@@ -122,8 +127,8 @@ useEffect(() => {
           key={index}
           rank={index + 1}
           team={data.team}
-          title_color={data.team}
-          points_color={data.team}
+          title_color={colour[data.team]}
+          points_color={colour[data.team]}
           lists={data.subItems}
           totalSubPoints={data.totalPoints}
         />

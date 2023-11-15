@@ -6,7 +6,7 @@
   font-family: "Inter", sans-serif;
 }
 #scoreboard {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   flex-direction: column;
   display: flex;
@@ -32,7 +32,7 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .col-1 {
