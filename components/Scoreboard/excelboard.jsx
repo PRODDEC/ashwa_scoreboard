@@ -55,7 +55,7 @@ const Excelboard= () => {
     
       // Convert the object into an array of team objects
       const teamArray = Object.values(teamObject);
-      const sortedTeams = teamArray.sort((a, b) => b.TotalPoints - a.TotalPoints);
+      const sortedTeams = teamArray.sort((a, b) => parseFloat(b.totalPoints) - parseFloat(a.totalPoints));
       console.log(sortedTeams)
       setSortedData(sortedTeams)
       }
