@@ -79,7 +79,7 @@ const colour={
     const intervalId = setInterval(() => {
       fetchData();
       
-    }, 120000);
+    }, 600000);
 
     return () => clearInterval(intervalId);
   }, []);
