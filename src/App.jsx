@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Imagepg from "../components/Imagepg";
 import Excelboard from "../components/Scoreboard/excelboard";
+import "./App.css";
 
 const App = () => {
   const sliderSettings = {
@@ -23,6 +24,7 @@ const App = () => {
   };
 
   return (
+    <div className="app">
     <Slider {...sliderSettings}>
       <div>
         <Imagepg />
@@ -33,6 +35,7 @@ const App = () => {
       </div>
       {/* Add more slides as needed */}
     </Slider>
+    </div>
   );
 };
 

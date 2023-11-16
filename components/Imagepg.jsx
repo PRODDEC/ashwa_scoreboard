@@ -12,6 +12,18 @@ function Imagepg() {
       }}
     >
           <img height={380} width={380} src={ashwa} alt="ashwa" />
+
+          <div style={{
+            position:"absolute",
+            top:"90%",
+            left:"35%",
+            transform:"translate(-50%,-50%)",
+            color:"black",
+            fontSize:"3",
+            fontWeight:"bold",
+           
+          }}
+          > <p>======></p></div>
     </div>
   )
 }
