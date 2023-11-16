@@ -3,14 +3,15 @@ import ashwa from "../assets/color-ashwa.png"
 function Imagepg() {
   return (
     <div style={{
-        height: "100vh",
+        height: "90vh",
         width: "100%",
         display:'flex',
         justifyContent:"center",
         alignItems:"center",
+        
       }}
     >
-          <img height={500} width={500} src={ashwa} alt="ashwa" />
+          <img height={380} width={380} src={ashwa} alt="ashwa" />
     </div>
   )
 }

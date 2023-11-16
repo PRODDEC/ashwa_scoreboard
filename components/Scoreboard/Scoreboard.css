@@ -17,7 +17,7 @@
 .header{
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
 }
 .ashwa {
   height: 100px;
@@ -26,13 +26,13 @@
 }
 
 .container {
-  width: 80%;
-  height: 100vh;
+  width: 90%;
+  height:80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  overflow: hidden;
+  padding: 0;
 }
 
 .col-1 {
@@ -113,14 +113,17 @@ h2 {
     height: 100%;
     justify-content: flex-start;
   }
-  #scoreboard .container {
     padding-right: 50px;
+  #scoreboard .container {
     height: 100%;
     justify-content: center;
     width: 100%;
   }
-  .board {
-    width: 350px;
-    height: 300px;
-  }
+}
+
+@media only screen and (max-width: 500px) {
+ .board{
+  max-width: 300px;
+  max-height: 250px;
+ }
 }
