@@ -116,7 +116,7 @@ h2 {
     justify-content: flex-start;
   }
   #scoreboard .container {
-    height: 800px;
+    height: 710px;
     justify-content: center;
     width: 100%;
     overflow-y: scroll; 

@@ -15,7 +15,7 @@ function Imagepg() {
 
           <div style={{
             position:"absolute",
-            top:"90%",
+            top:"60%",
             left:"35%",
             transform:"translate(-50%,-50%)",
             color:"black",
