@@ -66,37 +66,13 @@ const colour={
   
     // Convert the object into an array of team objects
     const teamArray = Object.values(teamObject);
-    const sortedTeams = teamArray.sort((a, b) => parseFloat(b.totalPoints) - parseFloat(a.totalPoints));
-  
-    console.log(sortedTeams);
+    const sortedTeams = teamArray.sort((a, b) => parseFloat(b.totalPoints) - parseFloat(a.totalPoints)).slice(0, 4);
+    if (teamArray.length > 4) {
+      console.warn("Update the excel correctly with team name");
+    }
+    // console.log(sortedTeams);
     setSortedData(sortedTeams);
   }
-  
-
-      // return teamArray;
-
-    // const teamsWithTotalSubPoints = {};
-  
-    // data.forEach(row => {
-    //   const teamId = row[2]; // Assuming the team name is at index 1 in each row
-    //   const subPoints = parseInt(row[3], 10); // Assuming sub_points are at index 3 and converting to integer
-  
-    //   if (!teamsWithTotalSubPoints[teamId]) {
-    //     teamsWithTotalSubPoints[teamId] = 0;
-    //   }
-  
-    //   teamsWithTotalSubPoints[teamId] += subPoints;
-    // });
-  
-  
-    // // Convert the object into an array of objects
-    // const teamsArray = Object.keys(teamsWithTotalSubPoints).map(team => ({
-    //   team,
-    //   TotalPoints: teamsWithTotalSubPoints[team],
-    // }));
-  
-    // Sort the array based on totalSubPoints in descending order
- 
   useEffect(() => {
     // Initial API call
     fetchData();
@@ -113,8 +89,8 @@ useEffect(() => {
 
 
  // Run the effect only once when the component mounts
-  console.log(data);
-  console.log(sortedData);
+  // console.log(data);
+  // console.log(sortedData);
   return (
     <div id="scoreboard">
       <div className='header'>
