@@ -10,7 +10,7 @@ const Board = ({ rank, team, title_color, points_color, lists, totalSubPoints })
         <h1>{rank}</h1>
       </div>
       <div className="col-2">
-        <div className="title" style={{ backgroundColor: title_color }}>
+        <div className="title" style={{ backgroundColor: title_color,overflow:"hidden" }}>
           <h2>{team}</h2>
           <h1>{totalSubPoints}</h1>
         </div>
